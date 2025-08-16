@@ -3,6 +3,7 @@ plugins {
 	alias(libs.plugins.jetbrains.kotlin.android)
 	kotlin("kapt")
 	alias(libs.plugins.google.dagger.hilt.android)
+	alias(libs.plugins.jetbrains.kotlin.serialization)
 }
 
 android {
@@ -69,4 +70,7 @@ dependencies {
 	//retrofit
 	implementation(libs.retrofit)
 	implementation(libs.converter.gson)
+
+	// Serialization
+	implementation(libs.kotlinx.serialization.json)
 }
