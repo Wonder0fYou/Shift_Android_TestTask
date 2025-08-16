@@ -1,4 +1,4 @@
-package com.example.shift_android_testtask
+package com.example.shift_android_testtask.app
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.Modifier
+import com.example.shift_android_testtask.app.ui.MainScreen
 import com.example.shift_android_testtask.component.ui.compose.UiScaffold
 import com.example.shift_android_testtask.component.ui.theme.Shift_Android_TestTaskTheme
 import com.example.shift_android_testtask.core.navigation.GlobalRouter

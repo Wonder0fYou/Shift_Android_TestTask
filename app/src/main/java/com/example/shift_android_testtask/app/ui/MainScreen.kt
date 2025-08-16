@@ -1,4 +1,4 @@
-package com.example.shift_android_testtask
+package com.example.shift_android_testtask.app.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
