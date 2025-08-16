@@ -1,6 +1,5 @@
 package com.example.shift_android_testtask.core.network.di
 
-import com.example.shift_android_testtask.core.network.UserInfoRemoteApi
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -42,11 +41,5 @@ object NetworkModule {
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
-    }
-
-    @Provides
-    @Singleton
-    fun provideApiService(retrofit: Retrofit): UserInfoRemoteApi {
-        return retrofit.create(UserInfoRemoteApi::class.java)
     }
 }
