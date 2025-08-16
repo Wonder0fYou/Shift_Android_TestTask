@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.shift_android_testtask.ui.theme.Shift_Android_TestTaskTheme
+import com.example.shift_android_testtask.component.ui.theme.Shift_Android_TestTaskTheme
 
 class MainActivity : ComponentActivity() {
 

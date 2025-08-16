@@ -1,4 +1,4 @@
-package com.example.shift_android_testtask.ui.theme
+package com.example.shift_android_testtask.component.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

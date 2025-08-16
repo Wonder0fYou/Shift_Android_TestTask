@@ -1,6 +1,5 @@
-package com.example.shift_android_testtask.ui.theme
+package com.example.shift_android_testtask.component.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
