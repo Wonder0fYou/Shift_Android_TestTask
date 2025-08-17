@@ -14,11 +14,7 @@ class MainListViewModel @Inject constructor(
 
     override fun initState(): MainListState = MainListState.Initial
 
-    init {
-        loadUsers()
-    }
-
-    private fun loadUsers() {
+    fun loadUsers() {
         viewModelScope.launch {
             setState(MainListState.Loading)
             try {

@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import com.example.shift_android_testtask.app.ui.MainScreen
 import com.example.shift_android_testtask.component.ui.compose.UiScaffold
 import com.example.shift_android_testtask.component.ui.theme.Shift_Android_TestTaskTheme
-import com.example.shift_android_testtask.core.navigation.GlobalRouter
+import com.example.shift_android_testtask.core.navigation.NavControllerHolder
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -19,7 +19,7 @@ import javax.inject.Inject
 class MainActivity : ComponentActivity() {
 
     @Inject
-    lateinit var globalRouter: GlobalRouter
+    lateinit var navControllerHolder: NavControllerHolder
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize()
                 ) { innerPadding ->
                     MainScreen(
-                        globalRouter = globalRouter,
+                        navControllerHolder = navControllerHolder,
                         modifier = Modifier
                             .fillMaxSize()
                             .padding(
