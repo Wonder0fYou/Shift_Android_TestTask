@@ -11,17 +11,17 @@ import com.example.shift_android_testtask.core.network.model.RegisteredDto
 import com.example.shift_android_testtask.core.network.model.StreetDto
 import com.example.shift_android_testtask.core.network.model.TimezoneDto
 import com.example.shift_android_testtask.core.network.model.UserDto
-import com.example.shift_android_testtask.feature.main.domain.entity.CoordinatesEntity
-import com.example.shift_android_testtask.feature.main.domain.entity.DobEntity
-import com.example.shift_android_testtask.feature.main.domain.entity.IdEntity
-import com.example.shift_android_testtask.feature.main.domain.entity.LocationEntity
-import com.example.shift_android_testtask.feature.main.domain.entity.LoginEntity
-import com.example.shift_android_testtask.feature.main.domain.entity.NameEntity
-import com.example.shift_android_testtask.feature.main.domain.entity.PictureEntity
-import com.example.shift_android_testtask.feature.main.domain.entity.RegisteredEntity
-import com.example.shift_android_testtask.feature.main.domain.entity.StreetEntity
-import com.example.shift_android_testtask.feature.main.domain.entity.TimezoneEntity
-import com.example.shift_android_testtask.feature.main.domain.entity.UserInfo
+import com.example.shift_android_testtask.shared.entity.CoordinatesEntity
+import com.example.shift_android_testtask.shared.entity.DobEntity
+import com.example.shift_android_testtask.shared.entity.IdEntity
+import com.example.shift_android_testtask.shared.entity.LocationEntity
+import com.example.shift_android_testtask.shared.entity.LoginEntity
+import com.example.shift_android_testtask.shared.entity.NameEntity
+import com.example.shift_android_testtask.shared.entity.PictureEntity
+import com.example.shift_android_testtask.shared.entity.RegisteredEntity
+import com.example.shift_android_testtask.shared.entity.StreetEntity
+import com.example.shift_android_testtask.shared.entity.TimezoneEntity
+import com.example.shift_android_testtask.shared.entity.UserInfo
 import javax.inject.Inject
 
 class UserInfoMapper @Inject constructor() {

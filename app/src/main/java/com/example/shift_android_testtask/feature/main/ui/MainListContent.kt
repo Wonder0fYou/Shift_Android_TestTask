@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.shift_android_testtask.component.ui.compose.UserCard
-import com.example.shift_android_testtask.feature.main.domain.entity.UserInfo
+import com.example.shift_android_testtask.shared.entity.UserInfo
 
 @Composable
 fun MainListContent(
