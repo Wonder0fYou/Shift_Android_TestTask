@@ -8,7 +8,7 @@ import com.example.shift_android_testtask.core.local.values.Tables
 import com.example.shift_android_testtask.shared.entity.UserInfo
 
 @Dao
-interface UserInfoDao: BaseDao<UserInfo> {
+interface UserInfoDao : BaseDao<UserInfo> {
 
     @Query("SELECT * FROM ${Tables.USERS_INFO}")
     suspend fun getUsers(): List<UserInfo>
@@ -21,4 +21,7 @@ interface UserInfoDao: BaseDao<UserInfo> {
         clearUsers()
         insertItems(users)
     }
+
+    @Query("SELECT * FROM ${Tables.USERS_INFO} WHERE email = :email LIMIT 1")
+    suspend fun getUserByEmail(email: String): UserInfo
 }

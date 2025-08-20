@@ -14,7 +14,8 @@ import com.example.shift_android_testtask.shared.entity.UserInfo
 @Composable
 fun MainListContent(
     modifier: Modifier = Modifier,
-    userList: List<UserInfo>
+    userList: List<UserInfo>,
+    currentUserClick: (String) -> Unit,
 ) {
     LazyColumn(
         modifier = modifier,
@@ -31,7 +32,8 @@ fun MainListContent(
                 imageUrl = userInfo.picture.large,
                 fcs = "${userInfo.name.title} ${userInfo.name.first} ${userInfo.name.last}",
                 address = "${userInfo.location.city}, ${userInfo.location.street.name} ${userInfo.location.street.number}",
-                phone = userInfo.phone
+                phone = userInfo.phone,
+                onUserClick = { currentUserClick(userInfo.email) }
             )
         }
     }

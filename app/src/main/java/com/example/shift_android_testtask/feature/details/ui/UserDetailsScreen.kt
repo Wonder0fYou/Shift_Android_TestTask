@@ -1,4 +1,4 @@
-package com.example.shift_android_testtask.feature.main.ui
+package com.example.shift_android_testtask.feature.details.ui
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -10,43 +10,41 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.shift_android_testtask.component.ui.compose.ErrorState
 import com.example.shift_android_testtask.component.ui.compose.LoadingState
 import com.example.shift_android_testtask.component.ui.compose.UiScaffold
-import com.example.shift_android_testtask.feature.main.presentation.MainListState
-import com.example.shift_android_testtask.feature.main.presentation.MainListViewModel
+import com.example.shift_android_testtask.feature.details.presentation.UserDetailsState
+import com.example.shift_android_testtask.feature.details.presentation.UserDetailsViewModel
 
 @Composable
-fun MainListScreen(
+fun UserDetailsScreen(
     modifier: Modifier = Modifier,
-    viewModel: MainListViewModel = hiltViewModel()
+    viewModel: UserDetailsViewModel = hiltViewModel(),
+    email: String,
 ) {
 
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    LaunchedEffect(Unit) {
-        viewModel.loadUsers()
+    LaunchedEffect(email) {
+        viewModel.loadUser(email)
     }
 
     UiScaffold(
         modifier = modifier,
         topBar = {
-            ProfileMainScreenTopBar()
+            UserDetailsScreenTopBar(onBackClick = viewModel::back)
         }
     ) { paddingValues ->
         when (val currentState = state) {
-            is MainListState.Content -> {
-                MainListContent(
+            is UserDetailsState.Content -> {
+                UserDetailsContent(
                     modifier = Modifier.padding(top = paddingValues.calculateTopPadding()),
-                    userList = currentState.list,
-                    currentUserClick = { email ->
-                        viewModel.openUser(email)
-                    }
+                    user = currentState.currentUser
                 )
             }
 
-            is MainListState.Failure -> {
+            is UserDetailsState.Failure -> {
                 ErrorState(reason = currentState.message)
             }
 
-            MainListState.Initial, MainListState.Loading -> {
+            UserDetailsState.Initial, UserDetailsState.Loading -> {
                 LoadingState()
             }
         }

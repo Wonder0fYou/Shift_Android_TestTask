@@ -7,14 +7,17 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class NavigationModule {
 
     @Binds
+    @Singleton
     abstract fun bindGlobalRouter(impl: GlobalRouterImpl): GlobalRouter
 
     @Binds
+    @Singleton
     abstract fun bindNavControllerHolder(impl: GlobalRouterImpl): NavControllerHolder
 }
