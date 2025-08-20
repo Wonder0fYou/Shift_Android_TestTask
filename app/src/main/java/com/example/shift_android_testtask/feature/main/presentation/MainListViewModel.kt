@@ -9,7 +9,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainListViewModel @Inject constructor(
-    private val getUserListUseCase: GetUserListUseCase
+    private val getUserListUseCase: GetUserListUseCase,
+    private val mainListRouter: MainListRouter
 ) : BaseViewModel<MainListState>() {
 
     override fun initState(): MainListState = MainListState.Initial
@@ -24,5 +25,9 @@ class MainListViewModel @Inject constructor(
                 setState(MainListState.Failure(e.message ?: "Unknown"))
             }
         }
+    }
+
+    fun openUser(userEmail: String) {
+        mainListRouter.openUserDetails(userEmail)
     }
 }
