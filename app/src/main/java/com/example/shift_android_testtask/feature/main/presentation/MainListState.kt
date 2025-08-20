@@ -1,6 +1,6 @@
 package com.example.shift_android_testtask.feature.main.presentation
 
-import com.example.shift_android_testtask.feature.main.domain.entity.UserInfo
+import com.example.shift_android_testtask.shared.entity.UserInfo
 
 sealed interface MainListState {
     data object Initial : MainListState
