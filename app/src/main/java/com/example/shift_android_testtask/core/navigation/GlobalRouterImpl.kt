@@ -2,7 +2,9 @@ package com.example.shift_android_testtask.core.navigation
 
 import androidx.navigation.NavController
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class GlobalRouterImpl @Inject constructor() : GlobalRouter, NavControllerHolder {
 
     private var navController: NavController? = null
