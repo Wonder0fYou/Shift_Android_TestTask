@@ -1,9 +1,9 @@
 plugins {
 	alias(libs.plugins.android.application)
 	alias(libs.plugins.jetbrains.kotlin.android)
-	kotlin("kapt")
 	alias(libs.plugins.google.dagger.hilt.android)
 	alias(libs.plugins.jetbrains.kotlin.serialization)
+	alias(libs.plugins.google.devtools.ksp)
 }
 
 android {
@@ -65,7 +65,7 @@ dependencies {
 
 	//hilt
 	implementation(libs.hilt.android)
-	kapt(libs.hilt.compiler)
+	ksp(libs.hilt.compiler)
 	implementation(libs.androidx.hilt.navigation.compose)
 
 	//retrofit
@@ -74,4 +74,9 @@ dependencies {
 
 	// Serialization
 	implementation(libs.kotlinx.serialization.json)
+
+	// Room
+	implementation(libs.androidx.room.runtime)
+	implementation(libs.androidx.room.ktx)
+	ksp(libs.androidx.room.compiler)
 }
