@@ -35,13 +35,18 @@ fun MainListScreen(
             is MainListState.Content -> {
                 MainListContent(
                     modifier = Modifier.padding(top = paddingValues.calculateTopPadding()),
-                    userList = currentState.list
+                    userList = currentState.list,
+                    currentUserClick = { email ->
+                        viewModel.openUser(email)
+                    }
                 )
             }
+
             is MainListState.Failure -> {
                 ErrorState(reason = currentState.message)
             }
-            MainListState.Initial , MainListState.Loading -> {
+
+            MainListState.Initial, MainListState.Loading -> {
                 LoadingState()
             }
         }
