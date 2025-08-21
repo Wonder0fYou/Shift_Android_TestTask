@@ -27,6 +27,19 @@ class MainListViewModel @Inject constructor(
         }
     }
 
+    fun refreshUsers() {
+        viewModelScope.launch {
+            setState(MainListState.Content(list = null, isRefreshing = true))
+            try {
+                val users = getUserListUseCase(refresh = true)
+                setState(MainListState.Content(list = users, isRefreshing = false))
+            } catch (e: Exception) {
+                setState(MainListState.Failure(e.message ?: "Unknown"))
+                setState(MainListState.Content(list = null, isRefreshing = false))
+            }
+        }
+    }
+
     fun openUser(userEmail: String) {
         mainListRouter.openUserDetails(userEmail)
     }
