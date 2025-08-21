@@ -12,15 +12,14 @@ class GetUserListRepositoryImpl @Inject constructor(
     private val userInfoMapper: UserInfoMapper,
     private val userInfoDao: UserInfoDao,
 ) : GetUserListRepository {
-    override suspend fun getUsers(): List<UserInfo> {
+    override suspend fun getUsers(refresh: Boolean): List<UserInfo> {
         val cachedUsers = userInfoDao.getUsers()
-        if (cachedUsers.isNotEmpty()) {
+        if (!refresh && cachedUsers.isNotEmpty()) {
             return cachedUsers
-        } else {
-            val response = userInfoRemoteApi.getUsers()
-            val userInfo = userInfoMapper.map(response.results)
-            userInfoDao.insertItems(userInfo)
-            return userInfo
         }
+        val response = userInfoRemoteApi.getUsers()
+        val userInfo = userInfoMapper.map(response.results)
+        userInfoDao.clearAndInsert(userInfo)
+        return userInfo
     }
 }
